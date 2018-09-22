@@ -38,7 +38,7 @@ Once those files have been added, use `git commit -m "Commit message here"` to c
 
 ### Merging your work
 
-If you would like to have the code on your branch merged with the master, please submit a pull request on the git hub page https://github.com/CSUF-ACM/electric-vehicle-map.git/pulls
+If you would like to have the code on your branch merged with the master, please submit a pull request on the git hub page https://github.com/CSUF-ACM/electric-vehicle-map/pulls
 
 If the pull request is accepted, your branch will be merged with the master branch
 
