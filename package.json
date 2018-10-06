@@ -1,0 +1,20 @@
+{
+  "name": "electric-vehicle-map",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@google/maps": "^0.5.5",
+    "consolidate": "^0.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "request": "^2.81.0",
+    "swig": "^1.4.2"
+  }
+}
