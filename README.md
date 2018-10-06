@@ -47,3 +47,31 @@ If the pull request is accepted, your branch will be merged with the master bran
 If you need some more help with git commands, please visit [Git Command Tutorial](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html)
 
 If you have any questions or need more help, please contact the Project Lead, Lonnie Hansen lghansen@csu.fullerton.edu
+
+### Prerequisites:
+* Node 8.11.3
+* nvm
+
+### Installation
+It is important to install Node 8.11.3, you can use [nvm](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/) to keep multiple versions of node in your system and switch easily. Node 8.11.3 is supported by Google App Engine in the standard environment.
+``` bash
+#Install nvm:
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+#Check if installed:
+nvm --version
+#Install specific node version:
+nvm install 8.11.3
+#Use this command inside the project.
+nvm use
+```
+
+After install node, it's time to install the packages required to start the project. After that, you can test locally!
+``` bash
+#Installs all packages:
+npm install
+```
+
+### Testing Locally:
+```bash
+npm start
+```
