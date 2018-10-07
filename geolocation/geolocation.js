@@ -1,6 +1,3 @@
-/*
-Our Google API key: AIzaSyCCMdJYDCf_gZ5O9AODdeEe1NMBXx9jj8w
-*/
 //Gets the user's location
 var userCounty;
 var countyList = ["Los Angeles County","Orange County","Riverside County","San Diego County","San Bernardino County",
