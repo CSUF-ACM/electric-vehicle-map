@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// These are the main routes that are used, and are found on the routes folder
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
