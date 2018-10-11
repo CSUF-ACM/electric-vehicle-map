@@ -18,4 +18,4 @@ Documentation for each service in the client is found [here](https://googlemaps.
 
 Both coordinates or regular addresses are fine.
 Follow sample distance.js for instructions how to use coordinates.
-Follow sample directions.js for instructions how to use coordinates.s
+Follow sample directions.js for instructions how to use coordinates and addresses.
