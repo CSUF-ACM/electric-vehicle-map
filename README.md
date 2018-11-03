@@ -24,6 +24,8 @@ To begin open your terminal (if using Linux/Mac) or git bash (if Windows), and n
 
 *If you need help navigating the terminal please refer to this link: [Linux Command Tutorial](https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners)*
 
+*If you need help creating a workflow for fork repositories: [Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
+
 use `git clone https://github.com/CSUF-ACM/electric-vehicle-map.git` to clone the repository into your folder
 
 To work on the project without disrupting the work of others or having your work disturbed, use `git branch <branchname>` to create a new branch, then use `git checkout <branchname>` to start working on your new branch
