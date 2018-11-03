@@ -30,20 +30,74 @@ body, html {height: 100%}
   <form action="/pageTwo">
     <label>Make:</label>
     <select name = "Make">
+          <option>Make</option>
           <option>Honda</option>
           <option>Tesla</option>
           <option>Ford</option>
           <option>Nissan</option>
           <option>Chevy</option>
+          <option>Other</option>
         </select>
         <br />
-        Model:  <input type="text" name="Model" value=" "><br>
+
+
+        <label>Model Size:</label>
+        <select name = "Model Size">
+              <option>Model Type</option>
+              <option>Regular</option>
+              <option>Mid Size</option>
+              <option>Full Size</option>
+              <option>Other</option>
+            </select>
         <br />
 
-        Year:  <input type="text" name="Year" value=" "><br>
+        <label>Year:</label>
+        <br />
+        <input type="range" list="tickmarks">
+
+            <datalist id="tickmarks">
+                <option value="0" label="2000">
+                <option value="10">
+                  <option value="20">
+                    <option value="30">
+                      <option value="40">
+                        <option value="50" label="2005">
+                          <option value="60">
+                            <option value="70">
+                              <option value="80">
+                                <option value="90">
+                                  <option value="100" label="2010">
+                                    <option value="110">
+                                      <option value="120">
+                                        <option value="130">
+                                          <option value="140">
+                                            <option value="150" label="2015">
+                                              <option value="160">
+                                                <option value="170">
+                                                  <option value="180">
+                                                    <option value="190">
+                                                      <option value="200" label="2020">
+                                                       </datalist>
         <br />
 
-        Mileage:  <input type="text" name="Mileage" value=" "><br>
+        <label>Mileage: </label>
+        <br />
+
+        <input type="range" list="tickmarks">
+
+          <datalist id="tickmarks">
+            <option value="0" label="0">
+              <option value="10">
+                <option value="20">
+                  <option value="30">
+                    <option value="40">
+                      <option value="50" label="50">
+                        <option value="60">
+                          <option value="70">
+                            <option value="80">
+                              <option value="90">
+                                <option value="100" label="100">
+                                </datalist>
         <br />
     <center>
         <input type="submit" value="Submit">
