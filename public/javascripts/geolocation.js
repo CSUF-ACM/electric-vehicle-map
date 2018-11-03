@@ -41,4 +41,5 @@ function savePosition(position) {
 function getUserLocation() {
   theGeocoder = new google.maps.Geocoder;
   getLocation();
+  document.getElementById("start").attribute = location;
 }

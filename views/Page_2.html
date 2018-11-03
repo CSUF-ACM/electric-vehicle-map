@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="geolocation.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 </style>
@@ -30,8 +31,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
         <div class="w3-row-padding" style="margin:0 -16px;">
           <div class="w3-half w3-margin-bottom">
             <label> Starting Location</label>
-            <input class="w3-input w3-border" type="text" placeholder="Origin" name="Starting Location" required>
-            <button type="button" class="w3-button w3-red w3-margin-top">Add Current Location</button>
+            <input class="w3-input w3-border start" type="text" placeholder="Origin" name="Starting Location" required>
+            <button type="button" onclick="getUserLocation()" class="w3-button w3-red w3-margin-top loc">Add Current Location</button>
           </div>
           <div class="w3-half">
             <label> Destination</label>
