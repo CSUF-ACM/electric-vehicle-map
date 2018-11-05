@@ -6,7 +6,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="geolocation.js"></script>
+<script type="text/javascript" src="/public/javascripts/geolocation.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 </style>
@@ -28,8 +29,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
         <div class="w3-row-padding" style="margin:0 -16px;">
           <div class="w3-half w3-margin-bottom">
             <label> Starting Location</label>
-            <input class="w3-input w3-border start" type="text" placeholder="Origin" name="Starting Location" required>
-            <button type="button" onclick="getUserLocation()" class="w3-button w3-red w3-margin-top loc">Add Current Location</button>
+            <input class="w3-input w3-border" id="start" type="text" placeholder="Origin" name="Starting Location" required>
+            <button type="button" class="w3-button w3-red w3-margin-top loc">Add Current Location</button>
           </div>
           <div class="w3-half">
             <label> Destination</label>
@@ -69,6 +70,7 @@ End page content  -->
 </div>
 
 <!-- Add Google Maps -->
+<!--
 <script>
 function myMap()
 {
@@ -87,6 +89,20 @@ function myMap()
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+-->
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $(".loc").click(function(){
+          getUserLocation();
+      });
+  });
+  </script>
+
+
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuT2VwWgUEz_dGwzYxN8BRQUntiDkXuQs">
+  </script>
+
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp

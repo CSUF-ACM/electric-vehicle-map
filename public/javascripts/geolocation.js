@@ -7,7 +7,7 @@ var options = {
   maximumAge: 0
 };
 //variable location is saved in
-var location;
+var userloc;
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -26,7 +26,7 @@ function savePosition(position) {
   //uses the lat and long to decode the location and places a list of addresses into results
   theGeocoder.geocode({'location': latlng}, function(results, status) {
     if (status == 'OK') {
-      location = results[0].formatted_address;
+      userloc = results[0].formatted_address;
     }
     else if (status == 'ERROR') {
       alert("Unable to get location");
@@ -41,5 +41,5 @@ function savePosition(position) {
 function getUserLocation() {
   theGeocoder = new google.maps.Geocoder;
   getLocation();
-  document.getElementById("start").attribute = location;
+  $("#start").val(userloc);
 }
