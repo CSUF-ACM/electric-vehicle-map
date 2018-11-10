@@ -80,3 +80,16 @@ function calcRoute() {
     }
   });
 }
+
+/* To add waypoints add this to the request json above
+waypoints: [
+    {
+      location: 'Joplin, MO',
+      stopover: false
+    },{
+      location: 'Oklahoma City, OK',
+      stopover: true
+    }],
+
+These are example locations
+*/
