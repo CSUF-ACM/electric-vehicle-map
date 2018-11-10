@@ -10,6 +10,9 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+#map {
+  height: 500px;
+}
 </style>
 <body class="w3-light-grey">
 
@@ -26,7 +29,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     <h2>Plan your trip</h2>
     </div>
     <div class="w3-container w3-white w3-padding-16">
-      <form action="/action_page.php" target="_blank">
         <div class="w3-row-padding" style="margin:0 -16px;">
           <div class="w3-half w3-margin-bottom">
             <label> Starting Location</label>
@@ -35,16 +37,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
           </div>
           <div class="w3-half">
             <label> Destination</label>
-            <input class="w3-input w3-border" type="text" placeholder="End" name="Destination" required>
+            <input class="w3-input w3-border" type="text" id="end" placeholder="End" name="Destination" required>
           </div>
         </div>
         <div class="w3-row-padding" style="margin:8px -16px;">
         </div>
-        <button class="w3-button w3-dark-grey" type="submit"> Get directions</button>
-      </form>
-    </div>
+        <button class="w3-button w3-dark-grey dir"> Get directions</button>
+      </div>
   </div>
 </header>
+  <div id="map"></div>
+  <div id="direction-panel"></div>
 </center>
 
 <!-- Page content
@@ -96,7 +99,10 @@ function myMap()
       $(".loc").click(function(){
           getUserLocation();
       });
-
+      $(".dir").click(function(){
+          initMap();
+          calcRoute();
+      })
   });
   </script>
 

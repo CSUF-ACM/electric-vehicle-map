@@ -7,7 +7,9 @@ var options = {
   maximumAge: 0
 };
 //variable location is saved in
-var userloc;
+var userloc = "";
+var directionsService;
+var directionsDisplay;
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -38,8 +40,43 @@ function savePosition(position) {
 }
 
 //this function is called with the google API
-function getUserLocation() {
+async function getUserLocation() {
   theGeocoder = new google.maps.Geocoder;
   getLocation();
+  setTimeout(insertLocation, 400);
+}
+
+function insertLocation() {
   $("#start").val(userloc);
+}
+
+function initMap() {
+  directionsService = new google.maps.DirectionsService();
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var locationMap = new google.maps.LatLng(lati, longi);
+  var mapOptions = {
+    zoom:5,
+    center: locationMap
+  }
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('direction-panel'));
+}
+
+function calcRoute() {
+  var start = $("#start").val();
+  var end = $("#end").val();
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: 'DRIVING'
+  };
+  directionsService.route(request, function(result, status) {
+    if (status == 'OK') {
+      directionsDisplay.setDirections(result);
+      console.log("Status == OK");
+    } else {
+      alert('Directions request failed due to: ' + status);
+    }
+  });
 }
