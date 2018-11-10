@@ -29,35 +29,35 @@ body, html {height: 100%}
 <center>
   <form action="/pageTwo">
     <label>Make:</label>
-    <select name = "Make">
-          <option>Make</option>
+    <select name = "Make" required>
+          <option value="">Make</option>
           <option>Honda</option>
-          <option>Tesla</option>
-          <option>Ford</option>
-          <option>Nissan</option>
-          <option>Chevy</option>
-          <option>Other</option>
+          <option value="tesla">Tesla</option>
+          <option value="ford">Ford</option>
+          <option value="nissan">Nissan</option>
+          <option value="chevy">Chevy</option>
+          <option value="other">Other</option>
         </select>
         <br />
         <br />
         <label>Model Size:</label>
-        <select name = "Model Size">
-              <option>Model Type</option>
-              <option>Regular</option>
-              <option>Mid Size</option>
-              <option>Full Size</option>
-              <option>Other</option>
+        <select name = "Model Size" required>
+              <option value="">Model Type</option>
+              <option value="compact">Compact Size</option>
+              <option value="mid">Mid Size</option>
+              <option value="full">Full Size</option>
+              <option value="other">Other</option>
             </select>
         <br />
         <br />
         <label>Year:</label>
         <br />
-            <input type=" " list="tickmarks">
+            <input type="number" list="tickmarks" required>
         <br />
         <br />
         <label>Mileage: </label>
         <br />
-            <input type=" " list="tickmarks">
+            <input type="number" list="tickmarks" required>
         <br />
         <br />
     <center>
