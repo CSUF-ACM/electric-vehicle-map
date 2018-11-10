@@ -1,0 +1,11 @@
+#map {
+  height: 950px;
+  width: 800px;
+}
+#direction-panel{
+   height: 500px;
+   width:  500px;
+}
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+</style>

@@ -10,3 +10,13 @@ input[type=text]:focus {
 input[type=text]:focus {
     border: 3px solid #555;
 }
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('/images/landpic.JPG');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>

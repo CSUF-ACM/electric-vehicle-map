@@ -3,28 +3,23 @@
 <title>Location Selection</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/stylesheets/page2.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/public/javascripts/geolocation.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
-#map {
-  height: 500px;
-}
-</style>
-<body class="w3-light-grey">
 
+<body class="w3-light-blue">
 <!-- Navigation Bar -->
 <div class="w3-bar w3-white w3-large">
   <a href="#" class="w3-bar-item w3-button w3-grey w3-mobile">EV Charging stations</a>
 </div>
 <!-- Header -->
-<center>
+
 <header class="w3-display-container w3-content" style="max-width:1800px;">
-  <img class="w3-image" src="/images/page2pic.jpg" alt="EV Charging stations">
-  <div class="w3-display-left w3-padding w3-col l6 m8">
+
+  <div class="w3-display-topleft w3-padding w3-col l6 m8">
     <div class="w3-container w3-grey">
     <h2>Plan your trip</h2>
     </div>
@@ -46,54 +41,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
       </div>
   </div>
 </header>
-  <div id="map"></div>
-  <div id="direction-panel"></div>
-</center>
-
-<!-- Page content
-<div class="w3-content" style="max-width:1532px;">
-  <div class="w3-container w3-padding-32 w3-black w3-opacity w3-card w3-hover-opacity-off" style="margin:32px 0;" id="Log in">
-    <h2>Log into your account.</h2>
-    <label>E-mail</label>
-    <input class="w3-input w3-border" type="text" placeholder="Your Email address">
-    <label>Password</label>
-    <input class="w3-input w3-border" type="text" placeholder="Your Password">
-    <button type="button" class="w3-button w3-red w3-margin-top">Log in</button>
-  </div>
-
-  <div class="w3-container" id="contact">
-    <h2>Create an account.</h2>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Password" required name="Password"></p>
-      <p><button class="w3-button w3-black w3-padding-large" type="submit">Sign up</button></p>
-    </form>
-  </div>
-End page content  -->
-
+  <div class="w3-display-topright w3-container"id="map"></div>
+  <div class="w3-display-bottomleft w3-container"id="direction-panel"></div>
 </div>
-<!-- Add Google Maps -->
-<!--
-<script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(41.878114, -87.629798);
-  var mapOptions= {
-    center:myCenter,
-    zoom:12, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
--->
   <script type="text/javascript">
   $(document).ready(function(){
       $(".loc").click(function(){
@@ -118,3 +69,48 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
 </body>
 </html>
+
+
+<!-- Page content
+<div class="w3-content" style="max-width:1532px;">
+  <div class="w3-container w3-padding-32 w3-black w3-opacity w3-card w3-hover-opacity-off" style="margin:32px 0;" id="Log in">
+    <h2>Log into your account.</h2>
+    <label>E-mail</label>
+    <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+    <label>Password</label>
+    <input class="w3-input w3-border" type="text" placeholder="Your Password">
+    <button type="button" class="w3-button w3-red w3-margin-top">Log in</button>
+  </div>
+
+  <div class="w3-container" id="contact">
+    <h2>Create an account.</h2>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Password" required name="Password"></p>
+      <p><button class="w3-button w3-black w3-padding-large" type="submit">Sign up</button></p>
+    </form>
+  </div>
+End page content  -->
+
+<!-- Add Google Maps -->
+<!--
+<script>
+function myMap()
+{
+  myCenter=new google.maps.LatLng(41.878114, -87.629798);
+  var mapOptions= {
+    center:myCenter,
+    zoom:12, scrollwheel: false, draggable: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myCenter,
+  });
+  marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+-->
