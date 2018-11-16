@@ -1,5 +1,14 @@
 # Electric Vehicle Map
 
+
+[![GitHub issues](https://img.shields.io/github/issues/CSUF-ACM/electric-vehicle-map.svg)](https://github.com/CSUF-ACM/electric-vehicle-map/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/CSUF-ACM/electric-vehicle-map.svg)](https://github.com/CSUF-ACM/electric-vehicle-map/pulls)  
+
+![GitHub repo size in bytes](https://img.shields.io/github/repo-size/CSUF-ACM/electric-vehicle-map.svg)
+[![GitHub contributors](https://img.shields.io/github/contributors/CSUF-ACM/electric-vehicle-map.svg)](https://github.com/CSUF-ACM/electric-vehicle-map/graphs/contributors)
+[![GitHub license](https://img.shields.io/github/license/CSUF-ACM/electric-vehicle-map.svg)](https://github.com/CSUF-ACM/electric-vehicle-map/blob/master/LICENSE)
+
+
 A map that shows electric charging stations on the way to the destination, telling the user if they would be able to make it to the destination and back with or without charging, and the total time it would take to get there if a charge was needed. Ideally when mapping the route, hills and freeways will be taken into account as they change the rate at which the car battery drains. The project would be implemented as a website that the user could visit. The project will use the Google Maps API to implement the maps.
 
 ## The Project Team
@@ -7,15 +16,11 @@ A map that shows electric charging stations on the way to the destination, telli
 ### Team Lead
 Lonnie Hansen lghansen@csu.fullerton.edu
 #### Team Members
-  1. Member one
-  2. Member two
-  3. Member three
-
-## Project Technologies
-
-This project will use:
-  * Technology 1 + resource url
-  * Technology 2 + resource url
+  1. Arthi Ramesh
+  2. Kizar Cassiere
+  3. Robert Ruiz
+  4. Rushi Sharma
+  5. Yu Kou (Yuki)
 
 ## How to start helping
 *Please make sure you have git installed on your computer before you begin to help. To install git, please visit [Git](https://git-scm.com/downloads)*
