@@ -11,8 +11,8 @@ var userloc = "";
 var directionsService;
 var directionsDisplay;
 var waypoint;
-var chargeNearStart;
-var chargeNearDest;
+var chargeNearStart = {lat: 33.8728111, lng: -117.8487145};
+var chargeNearDest = {lat: 33.8728111, lng: -117.8487145};
 var routeToChargeStationStart = false;
 var routeToChargeStationDest = false;
 
@@ -71,16 +71,29 @@ function initMap() {
 function calcRoute() {
   var start = $("#start").val();
   var end = $("#end").val();
-  var request = {
-    origin: start,
-    destination: end,
-    travelMode: 'DRIVING',
-    waypoints: [
-        {
-          location: chargeNearStart,
-          stopover: routeToChargeStationStart
-        }],
-  };
+  var request;
+  if (routeToChargeStationDest || routeToChargeStationStart) {
+    request = {
+      origin: start,
+      destination: end,
+      travelMode: 'DRIVING',
+      waypoints: [
+          {
+            location: chargeNearStart,
+            stopover: routeToChargeStationStart
+          },{
+            location: chargeNearDest,
+            stopover: routeToChargeStationDest
+          }],
+    };
+  } else {
+    var request = {
+      origin: start,
+      destination: end,
+      travelMode: 'DRIVING',
+    };
+  }
+
   directionsService.route(request, function(result, status) {
     if (status == 'OK') {
       directionsDisplay.setDirections(result);
@@ -91,10 +104,25 @@ function calcRoute() {
   });
 }
 
-async function getChargePoints() {
+async function getStartChargePoints() {
   var apiCall = "https://api.openchargemap.io/v2/poi/?output=json&countrycode=US&maxresults=10&compact=true&verbose=false&latitude=" + lati + "&longitude=" + longi;
   const response = await fetch(apiCall);
   const openChargeJSON = await response.json();
   var temp = openChargeJSON[0].AddressInfo;
   chargeNearStart = {lat: temp.Latitude, lng: temp.Longitude};
+}
+
+async function getDestChargePoints() {
+  var dest = $("#end").val();
+  var formattedDest = dest.replace(/ /g, "+");
+  var gAPICall = "https://maps.googleapis.com/maps/api/geocode/json?address=" + formattedDest + "&key=AIzaSyAuT2VwWgUEz_dGwzYxN8BRQUntiDkXuQs";
+  const gResponse = await fetch(gAPICall);
+  const gResult = await gResponse.json();
+  var gLatLng = gResult.results[0].geometry.location;
+  var apiCall = "https://api.openchargemap.io/v2/poi/?output=json&countrycode=US&maxresults=10&compact=true&verbose=false&latitude=" + gLatLng.lat + "&longitude=" + gLatLng.lng;
+  console.log(apiCall);
+  const response = await fetch(apiCall);
+  const openChargeJSON = await response.json();
+  var temp = openChargeJSON[0].AddressInfo;
+  chargeNearDest = {lat: temp.Latitude, lng: temp.Longitude};
 }
