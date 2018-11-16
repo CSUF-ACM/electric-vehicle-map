@@ -10,6 +10,11 @@ var options = {
 var userloc = "";
 var directionsService;
 var directionsDisplay;
+var waypoint;
+var chargeNearStart;
+var chargeNearDest;
+var routeToChargeStationStart = false;
+var routeToChargeStationDest = false;
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -43,7 +48,7 @@ function savePosition(position) {
 async function getUserLocation() {
   theGeocoder = new google.maps.Geocoder;
   getLocation();
-  setTimeout(insertLocation, 400);
+  setTimeout(insertLocation,750);
 }
 
 function insertLocation() {
@@ -69,7 +74,12 @@ function calcRoute() {
   var request = {
     origin: start,
     destination: end,
-    travelMode: 'DRIVING'
+    travelMode: 'DRIVING',
+    waypoints: [
+        {
+          location: chargeNearStart,
+          stopover: routeToChargeStationStart
+        }],
   };
   directionsService.route(request, function(result, status) {
     if (status == 'OK') {
@@ -81,15 +91,10 @@ function calcRoute() {
   });
 }
 
-/* To add waypoints add this to the request json above
-waypoints: [
-    {
-      location: 'Joplin, MO',
-      stopover: false
-    },{
-      location: 'Oklahoma City, OK',
-      stopover: true
-    }],
-
-These are example locations
-*/
+async function getChargePoints() {
+  var apiCall = "https://api.openchargemap.io/v2/poi/?output=json&countrycode=US&maxresults=10&compact=true&verbose=false&latitude=" + lati + "&longitude=" + longi;
+  const response = await fetch(apiCall);
+  const openChargeJSON = await response.json();
+  var temp = openChargeJSON[0].AddressInfo;
+  chargeNearStart = {lat: temp.Latitude, lng: temp.Longitude};
+}

@@ -49,6 +49,7 @@
   $(document).ready(function(){
       $(".loc").click(function(){
           getUserLocation();
+          setTimeout(getChargePoints,1000);
       });
       $(".dir").click(function(){
           initMap();
