@@ -7,7 +7,7 @@ A map that shows electric charging stations on the way to the destination, telli
 ### Team Lead
 Lonnie Hansen lghansen@csu.fullerton.edu
 #### Team Members
-  1. Member one
+  1. Kizar Cassiere kcassiere97@csu.fullerton.edu
   2. Member two
   3. Member three
 
