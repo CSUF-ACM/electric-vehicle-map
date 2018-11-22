@@ -49,8 +49,10 @@
   $(document).ready(function(){
       $(".loc").click(function(){
           getUserLocation();
+          setTimeout(getStartChargePoints,1000);
       });
       $(".dir").click(function(){
+          getDestChargePoints();
           initMap();
           calcRoute();
       })
