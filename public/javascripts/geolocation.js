@@ -15,6 +15,7 @@ var chargeNearStart = {lat: 33.8728111, lng: -117.8487145};
 var chargeNearDest = {lat: 33.8728111, lng: -117.8487145};
 var routeToChargeStationStart = false;
 var routeToChargeStationDest = false;
+var mileage;
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -48,6 +49,7 @@ function savePosition(position) {
 async function getUserLocation() {
   theGeocoder = new google.maps.Geocoder;
   getLocation();
+  console.log("something's happening");
   setTimeout(insertLocation,750);
 }
 
@@ -98,6 +100,8 @@ function calcRoute() {
     if (status == 'OK') {
       directionsDisplay.setDirections(result);
       console.log("Status == OK");
+    } else if (status == 'NOT_FOUND') {
+      alert("Please enter valid end destination");
     } else {
       alert('Directions request failed due to: ' + status);
     }
@@ -125,4 +129,22 @@ async function getDestChargePoints() {
   const openChargeJSON = await response.json();
   var temp = openChargeJSON[0].AddressInfo;
   chargeNearDest = {lat: temp.Latitude, lng: temp.Longitude};
+}
+
+async function getDistance() {
+  var url = window.location.href;
+  var mileagePos = url.search("Mileage:");
+  mileage = url.substring(mileagePos + "Mileage:".length);
+  var start = $("#start").val();
+  var end = $("#end").val();
+  start = start.replace(/ /g, "+");
+  end = end.replace(/ /g, "+");
+  var gAPICall = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + start + "&destinations=" + end + "&key=AIzaSyAuT2VwWgUEz_dGwzYxN8BRQUntiDkXuQs";
+  const gResponse = await fetch(gAPICall);
+  const gResult = await gResponse.json();
+  console.log(gResult)
+  var distance = parseFloat(gResult.rows.elements.distance.text);
+  if (mileagePos - distance < 15) {
+    alert("You will have less than 15 miles of charge available if you make this trip");
+  }
 }
