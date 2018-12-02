@@ -15,24 +15,14 @@ A map that shows electric charging stations on the way to the destination, telli
 
 ### Team Lead
 Lonnie Hansen lghansen@csu.fullerton.edu
+
 #### Team Members
-<<<<<<< HEAD
-  1. Kizar Cassiere kcassiere97@csu.fullerton.edu
-  2. Member two
-  3. Member three
-
-## Project Technologies
-
-This project will use:
-  * Technology 1 + resource url
-  * Technology 2 + resource url
-=======
   1. Arthi Ramesh
   2. Kizar Cassiere
   3. Robert Ruiz
   4. Rushi Sharma
   5. Yu Kou (Yuki)
->>>>>>> be3387c5b5a1ae3287d94b95a35f885af0231589
+
 
 ## How to start helping
 *Please make sure you have git installed on your computer before you begin to help. To install git, please visit [Git](https://git-scm.com/downloads)*
