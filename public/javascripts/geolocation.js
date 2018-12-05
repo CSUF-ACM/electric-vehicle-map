@@ -13,8 +13,9 @@ var directionsDisplay;
 var waypoint;
 var chargeNearStart = {lat: 33.8728111, lng: -117.8487145};
 var chargeNearDest = {lat: 33.8728111, lng: -117.8487145};
-var routeToChargeStationStart = false;
-var routeToChargeStationDest = false;
+var fastCharge = {lat: 33.8728111, lng: -117.8487145};
+var routeToClosest = false;
+var routeToFastCharge = false;
 var mileage;
 
 function getLocation() {
@@ -74,7 +75,29 @@ function calcRoute() {
   var start = $("#start").val();
   var end = $("#end").val();
   var request;
-  if (routeToChargeStationDest || routeToChargeStationStart) {
+  if (routeToClosest && !routeToFastCharge) {
+    request = {
+      origin: start,
+      destination: end,
+      travelMode: 'DRIVING',
+      waypoints: [
+          {
+            location: fastCharge,
+            stopover: routeToFastCharge
+          }],
+    };
+  } else if (routeToFastCharge && !routeToClosest) {
+    request = {
+      origin: start,
+      destination: end,
+      travelMode: 'DRIVING',
+      waypoints: [
+          {
+            location: fastCharge,
+            stopover: routeToFastCharge
+          }],
+    };
+  } else if (routeToClosest && routeToFastCharge) {
     request = {
       origin: start,
       destination: end,
@@ -82,10 +105,10 @@ function calcRoute() {
       waypoints: [
           {
             location: chargeNearStart,
-            stopover: routeToChargeStationStart
+            stopover: routeToClosest
           },{
-            location: chargeNearDest,
-            stopover: routeToChargeStationDest
+            location: fastCharge,
+            stopover: routeToFastCharge
           }],
     };
   } else {
@@ -114,6 +137,14 @@ async function getStartChargePoints() {
   const openChargeJSON = await response.json();
   var temp = openChargeJSON[0].AddressInfo;
   chargeNearStart = {lat: temp.Latitude, lng: temp.Longitude};
+}
+
+async function getFastChargePoint() {
+  var apiCall = "https://api.openchargemap.io/v2/poi/?output=json&countrycode=US&levelid=2&maxresults=10&compact=true&verbose=false&latitude=" + lati + "&longitude=" + longi;
+  const response = await fetch(apiCall);
+  const openChargeJSON = await response.json();
+  var temp = openChargeJSON[0].AddressInfo;
+  fastCharge = {lat: temp.Latitude, lng: temp.Longitude};
 }
 
 async function getDestChargePoints() {
@@ -148,3 +179,8 @@ async function getDistance() {
     alert("You will have less than 15 miles of charge available if you make this trip");
   }
 }
+
+function setNearestChargeTrue() { routeToClosest = true; }
+function setNearestChargeFalse() { routeToClosest = false; }
+function setSuperChargeTrue() { routeToFastCharge = true; }
+function setSuperChargeFalse() { routeToFastCharge = false; }
