@@ -21,12 +21,26 @@
     <label>Make:</label>
     <select name = "Make" required>
           <option value="">Make</option>
+          <option value="Audi">Audi</option>
+          <option value="BMW">BMW</option>
+          <option value="Cadillac">Cadillac</option>
+          <option value="Chevrolet">Chevrolet</option>
+          <option value="Chrysler">Chrysler</option>
+          <option value="Fiat">Fiat</option>
+          <option value="Ford">Ford</option>
           <option value="Honda">Honda</option>
-          <option value="tesla">Tesla</option>
-          <option value="ford">Ford</option>
-          <option value="nissan">Nissan</option>
-          <option value="chevy">Chevy</option>
-          <option value="other">Other</option>
+          <option value="Hyundai">Hyundai</option>
+          <option value="Kia">Kia</option>
+          <option value="Mercedes">Mercedes</option>
+          <option value="Mini Cooper">Mini Cooper</option>
+          <option value="Mitsubishi">Mitsubishi</option>
+          <option value="Nissan">Nissan</option>
+          <option value="Porsche">Porsche</option>
+          <option value="Smart">Smart</option>
+          <option value="Tesla">Tesla</option>
+          <option value="Toyota">Toyota</option>
+          <option value="Volvo">Volvo</option>
+          <option value="Volkswagen">Volkswagen</option>
         </select>
         <br />
         <br />
@@ -94,7 +108,7 @@
                   <option value="0">0</option>
         <br />
         <br />
-        
+
           <input type="submit" value="Submit">
   </form>
 </center>
@@ -102,6 +116,56 @@
   <div class="w3-display-bottomleft w3-padding-large">
   </div>
 </div>
+
+<script type="text/javascript">
+function switch_menu() {
+  var dropdown = document.getElementById("Make");
+  var cur_val = dropdown.options[dropdown.selectedIndex].value;
+  switch(cur_val) {
+    case "Audi":
+      break;
+    case "BMW":
+      break;
+    case "Cadillac":
+      break;
+    case "Chevrolet":
+      break;
+    case "Chrysler":
+      break;
+    case "Fiat":
+      break;
+    case "Ford":
+      break;
+    case "Honda":
+      break;
+    case "Hyundai":
+      break;
+    case "Kia":
+      break;
+    case "Mercedes":
+      break;
+    case "Mini Cooper":
+      break;
+    case "Mitsubishi":
+      break;
+    case "Nissan":
+      break;
+    case "Porsche":
+      break;
+    case "Smart":
+      break;
+    case "Tesla":
+      break;
+    case "Toyota":
+      break;
+    case "Volvo":
+      break;
+    case "Volkswagen":
+      break;
+  }
+}
+</script>
+
 
 </body>
 </html>

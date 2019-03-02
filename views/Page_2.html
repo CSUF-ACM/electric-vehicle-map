@@ -67,8 +67,10 @@
           } else {
               setSuperChargeFalse();
           }
+          getStartChargePoints();
           getDestChargePoints();
           initMap();
+          document.getElementById("direction-panel").innerHTML = "";
           calcRoute();
           //getDistance();
       })
