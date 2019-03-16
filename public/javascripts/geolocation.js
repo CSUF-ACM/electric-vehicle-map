@@ -180,6 +180,29 @@ async function getDistance() {
   }
 }
 
+function startDistance() {
+  var url = window.location.href;
+  var mileagePos = url.search("Mileage:");
+  mileage = url.substring(mileagePos + "Mileage:".length);
+  var start = $("#start").val();
+  var end = $("#end").val();
+  start = start.replace(/ /g, "+");
+  end = end.replace(/ /g, "+");
+  var dataJson = { origin: start, dest: end };
+  var endpoint = "start/" + start + "/end/" + end;
+  $.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(result) {
+      console.log("we did it!");
+    },
+    error: function(err_data) {
+      console.log("error");
+      console.log(err_data);
+    }
+  })
+}
+
 function setNearestChargeTrue() { routeToClosest = true; }
 function setNearestChargeFalse() { routeToClosest = false; }
 function setSuperChargeTrue() { routeToFastCharge = true; }
