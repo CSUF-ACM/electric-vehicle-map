@@ -10,7 +10,7 @@ input[type=text]:focus {
 input[type=text]:focus {
     border: 3px solid #555;
 }
-<style>
+
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 .bgimg {
@@ -19,4 +19,3 @@ body, html {height: 100%}
     background-position: center;
     background-size: cover;
 }
-</style>
