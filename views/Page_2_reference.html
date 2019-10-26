@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Location Selection</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/stylesheets/page2.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="/public/javascripts/geolocation.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+</head>
+
+<body class="w3-light-blue">
+<!-- Navigation Bar -->
+    <div class="w3-bar w3-white w3-large">
+     <a href="#" class="w3-bar-item w3-button w3-grey w3-mobile">EV Charging stations</a>
+    </div>
+  <!-- Header -->
+  <div class="w3-display-container w3-content" style="max-width:1800px;">
+  
+    <!-- Plan trip window-->
+  <div class="w3-display-topleft w3-padding w3-col l6 m8">
+
+    <div class="w3-container w3-grey">
+        <h2>Plan your trip</h2>
+    </div>
+
+    <form method="POST">
+      <div class="col-auto">
+        <div class="form-group row">
+          <label for="start" class="col-sm-2 col-form-label">Starting Location</label>
+          <div class="col-sm-10">
+            <input type="text"  class="form-control" name="start" id="start" placeholder="Origin" required autofocus>
+            <button type="button" id = "loc" class="w3-button w3-red w3-margin-top">Add Current Location</button>
+          </div>
+        </div>
+     </div>
+      
+      <div class="col-auto">
+        <div class="form-group row">
+          <label for="end" class="col-sm-2 col-form-label">Destination</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="end" id="end" placeholder="End" required>
+          </div>
+        </div>
+      </div>
+      <input id = "dir" type="submit" value="translate geo"> 
+    </form>
+        <div class="w3-row-padding" style="margin:8px -16px;">
+          <form action="/action_page.php">
+             <input type="checkbox" name="option1" id="nearestCharge" value="near">Nearest Charge Point<br>
+             <input type="checkbox" name="option2" id="superCharge" value="super">Super Charge Point<br>
+         </form>
+        </div>
+        <button id = "dir" class="w3-button w3-dark-grey "> Get directions</button>
+
+  </div>
+  
+
+<!--Display direction window-->
+  <div class="w3-display-bottomleft w3-container"id="direction-panel"></div>
+  <div id="map"></div>
+  <div id="direction-panel"></div>
+
+  <script type="text/javascript">
+  //works great
+  $(document).ready(function(){
+      $("#loc").click(function(){
+          getUserLocation();
+          var miliSecond = 10000;
+          setTimeout(getStartChargePoints,miliSecond);
+      });
+      //TO FIX
+      $("#dir").click(function(){
+          if (document.getElementById('nearestCharge').checked) {
+              setNearestChargeTrue();
+          } else {
+              setNearestChargeFalse();
+          }
+          if (document.getElementById('superCharge').checked) {
+              setSuperChargeTrue();
+          } else {
+              setSuperChargeFalse();
+          }
+          getStartChargePoints();
+          getDestChargePoints();
+          initMap();
+          document.getElementById("direction-panel").innerHTML = "";
+          calcRoute();
+          //getDistance();
+      })
+  });
+  </script>
+
+  <div class="w3-display-topright w3-container"id="map"></div>
+<!--Display Map object-->
+  <script>
+    
+    function initMap() {
+      directionsService = new google.maps.DirectionsService;
+      directionsDisplay = new google.maps.DirectionsRenderer;
+      var myLatLng = {lat: 33.8728111, lng: -117.84871449999999};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: myLatLng,
+        zoom: 10
+      });
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map:map,
+      });
+      directionsRenderer.setMap(map);
+      
+      //directionsDisplay.setPanel(document.getElementById('direction-panel'));
+  }
+  </script>
+
+<!--Confidential API key-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArVi8gNRYDpIrVHEhJgNLazU4WET3MUBA&callback=initMap"></script>
+
+  </body>
+</html>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
